@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>listagem</title>
+    </head>
+    <body>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id_time</th>
+              <th scope="col">id_processo</th>
+              <th scope="col">id_orgao_contrato</th>
+              <th scope="col">id_contrato</th>
+              <th scope="col">id_contratado</th>
+              <th scope="col">situacao_cont</th>
+              <th scope="col">ano_particao</th>
+              <th scope="col">vr_homologado</th>
+              <th scope="col">vr_atualizado</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for c in cc %}
+            <tr>
+              <td>{{c.id_time}}</td>
+              <td>{{c.id_processo}}</td>
+              <td>{{c.id_orgao_contrato}}</td>
+              <td>{{c.id_contrato}}</td>
+              <td>{{c.id_contratado}}</td>
+              <td>{{c.situacao_cont}}</td>
+              <td>{{c.ano_particao}}</td>
+              <td>{{c.vr_homologado}}</td>
+              <td>{{c.vr_atualizado}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    </body>
+</html>
