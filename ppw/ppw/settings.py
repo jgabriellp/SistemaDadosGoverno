@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-vcpg-_m-%^)#^)fs3=bf$vhf&neeo#_%6(93hg22a_c)2*%--*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.89.16.149']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
 EVENT_STARTED=True
 EVENT_ENDED=
 
