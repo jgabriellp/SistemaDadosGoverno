@@ -21,8 +21,8 @@ urlpatterns = [
     # rota, view responsavel, nome
 
     # path('admin/', admin.site.urls),
-    path('', views.listagem, name='listagem'),
+    # path('', views.listagem, name='listagem'),
     # path('login', views.login, name='login'),
     # path('cadastro', views.cadastro, name='cadastro'),
-    # path('listagem', views.listagem, name='listagem'),
+    path('listagem', views.listagem, name='listagem'),
 ]
