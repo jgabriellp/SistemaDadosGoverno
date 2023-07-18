@@ -9,8 +9,8 @@ from .models import ComprasContrato
 
 
 def listagem(request):
-    cc = ComprasContrato.objects.all()[:5000]
-    # cc = ComprasContrato.objects.all()
+    # cc = ComprasContrato.objects.all()[:5000]
+    cc = ComprasContrato.objects.all()
     return render(request, 'usuarios/listagem.html', {'cc': cc})
 
 
