@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>listagem</title>
+        <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+
+        <style>
+            body {
+                background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/9743047-pastel-gradiente-fundo-amarelo-com-bonitos-padroes-vetor.jpg);
+            }
+            h1 {
+                color: darkblue;
+                font-family: Cambria;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tabela de Compras e Contratos</h1>
+        <table id="minhaTabela">
+          <thead>
+            <tr>
+              <th scope="col">id_time</th>
+              <th scope="col">id_processo</th>
+              <th scope="col">id_orgao_contrato</th>
+              <th scope="col">id_contrato</th>
+              <th scope="col">id_contratado</th>
+              <th scope="col">situacao_cont</th>
+              <th scope="col">ano_particao</th>
+              <th scope="col">vr_homologado</th>
+              <th scope="col">vr_atualizado</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for c in cc %}
+            <tr>
+              <td>{{c.id_time}}</td>
+              <td>{{c.id_processo}}</td>
+              <td>{{c.id_orgao_contrato}}</td>
+              <td>{{c.id_contrato}}</td>
+              <td>{{c.id_contratado}}</td>
+              <td>{{c.situacao_cont}}</td>
+              <td>{{c.ano_particao}}</td>
+              <td>{{c.vr_homologado}}</td>
+              <td>{{c.vr_atualizado}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <a href="{% url 'consulta-1' %} " class="btn btn-primary">Consulta 1</a>
+        <a href="{% url 'consulta-2' %} " class="btn btn-primary">Consulta 2</a>
+        <a href="{% url 'consulta-3' %} " class="btn btn-primary">Consulta 3</a>
+        <a href="{% url 'consulta-4' %} " class="btn btn-primary">Consulta 4</a>
+        <a href="{% url 'consulta-5' %} " class="btn btn-primary">Consulta 5</a>
+        <a href="{% url 'consulta-6' %} " class="btn btn-primary">Consulta 6</a>
+        <a href="{% url 'consulta-7' %} " class="btn btn-primary">Consulta 7</a>
+        <a href="{% url 'consulta-8' %} " class="btn btn-primary">Consulta 8</a>
+        <a href="{% url 'consulta-9' %} " class="btn btn-primary">Consulta 9</a>
+        <a href="{% url 'consulta-10' %} " class="btn btn-primary">Consulta 10</a>
+
+
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#minhaTabela').DataTable({
+                  "language": {
+                      "lengthMenu": "Mostrando _MENU_ registros por página",
+                      "zeroRecords": "Nada encontrado",
+                      "info": "Mostrando página _PAGE_ de _PAGES_",
+                      "infoEmpty": "Nenhum registro disponível",
+                      "infoFiltered": "(filtrado de _MAX_ registros no total)"
+                  }
+              });
+        });
+    </script>
+
+    </body>
+</html>

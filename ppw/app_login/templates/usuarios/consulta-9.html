@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Consulta-9</title>
+    <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/9743047-pastel-gradiente-fundo-amarelo-com-bonitos-padroes-vetor.jpg);
+            }
+            h1 {
+                color: darkblue;
+                font-family: Cambria;
+                text-align: center;
+            }
+        </style>
+  </head>
+  <body>
+    <h1>Tabela resultado: Consulta 9</h1>
+    <table id="minhaTabela">
+        <thead>
+            <tr>
+                <th>ID do Órgão do Contrato</th>
+                <th>Aumento de Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resultado in resultados %}
+                <tr>
+                    <td>{{ resultado.id_orgao_contrato }}</td>
+                    <td>{{ resultado.aumento_valor }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#minhaTabela').DataTable({
+                  "language": {
+                      "lengthMenu": "Mostrando _MENU_ registros por página",
+                      "zeroRecords": "Nada encontrado",
+                      "info": "Mostrando página _PAGE_ de _PAGES_",
+                      "infoEmpty": "Nenhum registro disponível",
+                      "infoFiltered": "(filtrado de _MAX_ registros no total)"
+                  }
+              });
+        });
+    </script>
+  </body>
+</html>
