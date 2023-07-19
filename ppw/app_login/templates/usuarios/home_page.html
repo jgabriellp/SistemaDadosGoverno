@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Tela Home</title>
+      <!-- Adicione os links de estilo do Bootstrap -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <style>
+        body {
+            background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/9743047-pastel-gradiente-fundo-amarelo-com-bonitos-padroes-vetor.jpg);
+        }
+        .container {
+          text-align: center;
+          margin-top: 50px;
+        }
+        #logo {
+          max-width: 300px;
+          height: auto;
+        }
+        #datetime {
+          font-size: 18px;
+          color: blue;
+          margin-top: 20px;
+        }
+        .navbar {
+          display: flex;
+          justify-content: center;
+        }
+        .navbar-nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .nav-item {
+          margin: 5px;
+        }
+        .nav-link {
+          font-size: 16px;
+          color: #fff;
+        }
+
+      </style>
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a href="{% url 'consulta-1' %} " class="btn btn-primary">Consulta 1</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-2' %} " class="btn btn-primary">Consulta 2</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-3' %} " class="btn btn-primary">Consulta 3</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-4' %} " class="btn btn-primary">Consulta 4</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-5' %} " class="btn btn-primary">Consulta 5</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-6' %} " class="btn btn-primary">Consulta 6</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-7' %} " class="btn btn-primary">Consulta 7</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-8' %} " class="btn btn-primary">Consulta 8</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-9' %} " class="btn btn-primary">Consulta 9</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'consulta-10' %} " class="btn btn-primary">Consulta 10</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="container">
+        <img src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-assinatura-de-um-contrato_114360-4879.jpg?w=2000" alt="Imagem de Compras" id="logo">
+        <h1>Compras e Contratos</h1>
+        <div id="datetime"></div>
+      </div>
+      <div style="margin-top: 50px; max-width: 1500px;">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Fale Conosco
+                </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <strong>E-mails:</strong> <br><i>matheusdefarias@academico.ufs.br<br>jogapeli@academico.ufs.br</i>
+                </div>
+            </div>
+            </div>
+            <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ver Consultas Disponíveis
+                </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <strong>CONSULTA 1: </strong>Qual é o valor total homologado e atualizado de contratos por ano?<br><strong>CONSULTA 2: </strong>Quais são os órgãos contratantes que mais realizaram contratos no período analisado?<br><strong>CONSULTA 3: </strong>Qual é o valor médio dos contratos atualizados por situação de contrato?<br>
+                    <strong>CONSULTA 4: </strong>Quais são os contratados que mais receberam pagamentos no período analisado?<br><strong>CONSULTA 5: </strong>Quais são os contratos com valores atualizados acima de 100000000?<br><strong>CONSULTA 6: </strong>Quais são os contratos com valores atualizados abaixo de 5000?<br>
+                    <strong>CONSULTA 7: </strong>Quais são os processos com maior valor homologado?<br><strong>CONSULTA 8: </strong>Quais são os processos que tiveram maior diferença entre o valor homologado e o valor atualizado?<br><strong>CONSULTA 9: </strong>Quais são os órgãos contratantes que mais aumentaram o valor dos contratos com o tempo?<br>
+                    <strong>CONSULTA 10: </strong>Qual é o valor total homologado e atualizado dos contratos por órgão contratante?<br>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+      <!-- link para o script do Moment.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+      <!-- link para o script do Moment-Timezone -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.32/moment-timezone-with-data.min.js"></script>
+      <!-- link para o script do Bootstrap -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script>
+        function updateDateTime() {
+          var brasiliaTime = moment().tz("America/Sao_Paulo").format('HH:mm:ss');
+          var date = moment().tz("America/Sao_Paulo").format('DD/MM/YYYY');
+          document.getElementById('datetime').innerHTML = 'Data: ' + date + '<br>Hora: ' + brasiliaTime;
+        }
+
+        // Atualiza o horário a cada segundo
+        setInterval(updateDateTime, 1000);
+      </script>
+    </body>
+</html>
