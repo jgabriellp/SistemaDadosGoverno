@@ -15,17 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.contrib import admin
 from app_login import views
-from app_login.views import consulta_ONE, consulta_TWO, consulta_TREE, consulta_FOUR, consulta_FIVE, consulta_SIX, consulta_SEVEN, consulta_EIGTH, consulta_NINE, consulta_TEN
+from app_login.views import consulta_ONE, consulta_TWO, consulta_TREE, consulta_FOUR\
+    , consulta_FIVE, consulta_SIX, consulta_SEVEN, consulta_EIGTH, consulta_NINE, consulta_TEN, login
 
 urlpatterns = [
     # rota, view responsavel, nome
 
-    # path('admin/', admin.site.urls),
-    # path('', views.home, name='home'),
-    # path('login', views.login, name='login'),
-    # path('cadastro', views.cadastro, name='cadastro'),
+    path('admin/', admin.site.urls),
     path('', views.home_page, name='home_page'),
+    path('login', views.login, name='login'),
+    path('logout', auth_views.LogoutView.as_view(), name='logout'),
+    path('cadastro', views.cadastro, name='cadastro'),
     path('consulta-1', consulta_ONE, name='consulta-1'),
     path('consulta-2', consulta_TWO, name='consulta-2'),
     path('consulta-3', consulta_TREE, name='consulta-3'),

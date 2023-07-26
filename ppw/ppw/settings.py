@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'app_login',
 ]
 
+LOGOUT_REDIRECT_URL = 'home_page'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
