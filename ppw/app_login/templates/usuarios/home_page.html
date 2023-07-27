@@ -118,6 +118,11 @@
 
       {% endif %}
 
+<!--
+      <div id="location-info">
+        // Aqui exibiremos as informações de localização
+      </div>
+-->
       <div class="container">
         <img src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-assinatura-de-um-contrato_114360-4879.jpg?w=2000" alt="Imagem de Compras" id="logo">
         <h1>Compras e Contratos</h1>
@@ -135,7 +140,7 @@
 
                   <div id="collapseZero" class="collapse show" aria-labelledby="headingZero" data-parent="#accordionExample">
                       <div class="card-body">
-                          <i><a style="color: black;" href="{% url 'logout' %}">Logout</a></i>
+                          <i><a style="color: black;" href="{% url 'logout' %}">Sair</a></i>
                       </div>
                   </div>
 
@@ -148,7 +153,7 @@
 
                   <div id="collapseZero" class="collapse show" aria-labelledby="headingZero" data-parent="#accordionExample">
                       <div class="card-body">
-                          <i><a style="color: black;" href="{% url 'login' %}">Login</a></i>
+                          <i><a style="color: black;" href="{% url 'login' %}">Fazer Login</a></i>
                       </div>
                   </div>
 
@@ -209,5 +214,55 @@
         // Atualiza o horário a cada segundo
         setInterval(updateDateTime, 1000);
       </script>
+
+      {% if user.is_authenticated %}
+      <script>
+        function showLocation(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // VARIAVEL QUE VAI IMPRIMIR A LOCALIZAÇÃO:
+            // var locationInfo = document.getElementById('location-info');
+            var locationInfo;
+
+            // Faz a chamada para a API de geocodificação (Nominatim)
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
+                .then(response => response.json())
+                .then(data => {
+                    var city = data.address.city || data.address.town || data.address.village || data.address.hamlet || 'Cidade não encontrada';
+                    // locationInfo.innerHTML = `Latitude: ${latitude}, Longitude: ${longitude}, Cidade: ${city}`;
+                    locationInfo = `Latitude: ${latitude}, Longitude: ${longitude}, Cidade: ${city}`;
+                    console.log(locationInfo);
+                })
+                .catch(error => {
+                    // locationInfo.innerHTML = `Erro ao obter a localização: ${error.message}`;
+                    locationInfo = `Erro ao obter a localização: ${error.message}`;
+                    console.log(locationInfo);
+                });
+        }
+
+        function errorHandler(err) {
+            var locationInfo = document.getElementById('location-info');
+            // locationInfo.innerHTML = `Erro ao obter a localização: ${err.message}`;
+            locationInfo = `Erro ao obter a localização: ${err.message}`;
+            console.log(locationInfo);
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showLocation, errorHandler);
+            } else {
+                var locationInfo = document.getElementById('location-info');
+                // locationInfo.innerHTML = 'Geolocalização não é suportada neste navegador.';
+                locationInfo = 'Geolocalização não é suportada neste navegador.';
+                console.log(locationInfo);
+            }
+        }
+
+        // Chama a função para obter a localização ao carregar a página
+        getLocation();
+    </script>
+    {% endif %}
+
     </body>
 </html>
