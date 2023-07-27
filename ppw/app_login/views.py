@@ -1,19 +1,51 @@
+from django.contrib.auth.decorators import login_required
 from django.db.models import Sum, FloatField, Value, F
 from django.db.models.functions import Coalesce
 from django.db.models import Count
 from django.db.models import Avg
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.contrib.auth import authenticate
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login as auth_login
 from .models import ComprasContrato
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
 
 
-"""def listagem(request):
-    cc = ComprasContrato.objects.all()[:5000]
-    # cc = ComprasContrato.objects.all()
-    return render(request, 'usuarios/listagem.html', {'cc': cc})"""
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            auth_login(request, user)
+            return render(request, 'usuarios/home_page.html')  # Redireciona para a página inicial após o login
+        else:
+            # Tratar caso de credenciais inválidas
+            return render(request, 'usuarios/login.html', {'error_message': 'Credenciais inválidas'})
+    else:
+        return render(request, 'usuarios/login.html')
 
 
+def cadastro(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        # Verifique se o nome de usuário já existe
+        if User.objects.filter(username=username).exists():
+            error_message = "Nome de usuário já existe. Escolha outro."
+            return render(request, 'usuarios/cadastro.html', {'error_message': error_message})
+
+        # Crie um novo usuário
+        user = User(username=username, email=email, password=make_password(password))
+        user.save()
+
+        return redirect('templates/usuarios/login.html')
+
+    return render(request, 'usuarios/cadastro.html')
+
+
+# @login_required
 def home_page(request):
     return render(request, 'usuarios/home_page.html')
 
@@ -99,3 +131,5 @@ def consulta_TEN(request):
 
     # Renderize o template com os resultados
     return render(request, 'usuarios/consulta-10.html', {'resultados': resultados})
+
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        <style>
+            body {
+                /* Definir o background do body com a imagem */
+                background-image: url(https://img.freepik.com/vetores-gratis/elegante-vetor-de-fundo-de-textura-aquarela-amarela-suave_1055-12410.jpg?w=360);
+            }
+            #loginbutton {
+                background-color: rgb(82, 158, 82);
+            }
+            #container {
+                color: rgb(213, 206, 206);
+                width: 1200px;
+                height: 450px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            #login-title {
+                font-family: Cambria, serif;
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 20px;
+                color: green;
+            }
+            form {
+                border-radius: 25px; /* Add rounded corners to the login form */
+                padding: 20px; /* Add some padding to the form to maintain spacing */
+                /* Definir o background do form com a imagem */
+                background-image: url(https://i.pinimg.com/1200x/b1/b4/9e/b1b49e1c2d460f21981330964a3e5ea8.jpg);
+                /* Ajustar a opacidade do background para não interferir no texto */
+                opacity: 0.8;
+            }
+            #saldacao {
+                font-family: Cambria, serif;
+                font-size: 50px;
+                text-align: center;
+                margin-bottom: 5px;
+                color: rgb(60, 7, 60);
+            }
+        </style>
+        
+        <title>Tela de Login</title>
+    </head>
+
+    <body>
+        <br>
+        <h1 id="saldacao">FAÇA SEU LOGIN</h1>
+        <div id=container class="container mt-4">
+            <div class="row align-items-center">
+                
+                <div id="campos" class="col-md-5 mx-auto">
+                    <form method="post" class="p-4 p-md-5 border rounded-3 bg-light">
+                    {% csrf_token %}
+
+                        <div id="login-title">Login</div>
+
+                        {% if error_message %}
+                            <p style="color: red;">{{ error_message }}</p>
+                        {% endif %}
+                        
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Usuário" required/>
+                            <label for="username">Usuário</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required/>
+                            <label for="password">Senha</label>
+                        </div>
+                        <!--
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="lembrar de mim"> Lembrar de mim
+                                </label>
+                            </div>
+                        -->
+
+                        <input id="loginbutton" class="btn btn-lg btn-success" type="submit" value="Entrar">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
