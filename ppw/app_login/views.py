@@ -40,7 +40,7 @@ def cadastro(request):
         user = User(username=username, email=email, password=make_password(password))
         user.save()
 
-        return redirect('templates/usuarios/login.html')
+        return render(request, 'usuarios/login.html')
 
     return render(request, 'usuarios/cadastro.html')
 

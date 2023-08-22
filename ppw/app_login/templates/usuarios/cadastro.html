@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Registro de Novo Usuário</h2>
-    <form action="{ % url 'cadastro' % }" method="post">
+    <form method="post">
         {% csrf_token %}
         <label for="username">Nome de Usuário:</label>
         <input type="text" id="username" name="username" required>
