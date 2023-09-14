@@ -13,9 +13,79 @@
                 font-family: Cambria;
                 text-align: center;
             }
+            .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            }
+            .blue-button {
+            background-color: #007BFF; /* Cor azul */
+            color: #fff; /* Cor do texto */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+          }
+          .blue-button:hover {
+              background-color: #0056b3; /* Cor azul mais escura quando passa o mouse */
+              text-align: center;
+          }
+          .container {
+            display: inline-flex;
+            justify-content: center;
+            width: 100%;
+          }
         </style>
   </head>
   <body>
+
+    <div class="container">
+
+      <div class="center-container">
+        <a href="{% url 'consulta-1' %}" class="blue-button">Consulta 1</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-2' %}" class="blue-button">Consulta 2</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-3' %}" class="blue-button">Consulta 3</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-4' %}" class="blue-button">Consulta 4</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-5' %}" class="blue-button">Consulta 5</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-6' %}" class="blue-button">Consulta 6</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-7' %}" class="blue-button">Consulta 7</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-8' %}" class="blue-button">Consulta 8</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-9' %}" class="blue-button">Consulta 9</a>
+      </div>
+
+      <div class="center-container">
+        <a href="{% url 'consulta-10' %}" class="blue-button">Consulta 10</a>
+      </div>
+
+    </div>
+
     <h1>Tabela resultado: Consulta 9</h1>
     <table id="minhaTabela">
         <thead>
@@ -33,6 +103,10 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <div class="center-container">
+      <a href="{% url 'home_page' %}" class="blue-button">Voltar</a>
+    </div>
 
     <br><br>
 
